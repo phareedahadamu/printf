@@ -14,9 +14,7 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-
 	va_start(arg, format);
-
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
@@ -27,6 +25,8 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
+			if (format[i] == ' ' || format[i] == '\0')
+				return (-1);
 			if (format[i] == '%')
 			{
 				_putchar('%');
@@ -35,7 +35,10 @@ int _printf(const char *format, ...)
 			else
 			{
 				if (get_func(format[i]) == NULL)
+				{
+					r_val += _putchar('%');
 					r_val += _putchar(format[i]);
+				}
 				else
 					r_val += get_func(format[i])(arg);
 			}
