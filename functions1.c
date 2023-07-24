@@ -47,6 +47,11 @@ int print_int(va_list arg)
 
 	n = va_arg(arg, int);
 
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	if (n < 0)
 	{
 		_putchar('-');
@@ -54,7 +59,6 @@ int print_int(va_list arg)
 		n = -n;
 	}
 	temp = n;
-
 	do {
 		digits++;
 		temp = temp / 10;
