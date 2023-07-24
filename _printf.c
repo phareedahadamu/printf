@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * _printf - A variadic function that prints to stdout.
+ *           It handles a list of format specifiers
+ * @format: The things to be printed
+ * Return: THe length of printed characters
+ */
+
 int _printf(const char *format, ...)
 {
 	va_list arg;
@@ -23,7 +30,12 @@ int _printf(const char *format, ...)
 				r_val++;
 			}
 			else
-				r_val += get_func(format[i])(arg);
+			{
+				if (get_func(format[i]) == NULL)
+					r_val += _putchar(format[i]);
+				else
+					r_val += get_func(format[i])(arg);
+			}
 		}
 		i++;
 	}
