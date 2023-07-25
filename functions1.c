@@ -80,50 +80,35 @@ int print_int(va_list arg)
 }
 
 /**
- * printint - A function that prints an integer
- * @n: The variadic argument
- * Return: The length of the integer
- */
-
-void printint(long int n)
-{
-	long int count = 0;
-
-	if (n < 0)
-	{
-		_putchar('-');
-		count++;
-		n = -n;
-	}
-	if (n / 10)
-		printint(n / 10);
-	_putchar((n % 10) + '0');
-}
-
-/**
  * print_bin - A function that prints an int in binary
  * @arg: The argument to be printed
  * Return: The length of digits printed
  */
 int print_bin(va_list arg)
 {
-	unsigned int n, bin = 0, i = 1, count = 0, rem;
+	unsigned int n;
+	int bin[32] = {0};
+	int count = 0; i = 0;
 
 	n = va_arg(arg, unsigned int);
 	if (n == 0)
 	{
 		count++;
 		_putchar('0');
+		return (count);
 	}
 
-	while (n != 0)
+	while (n > 0)
 	{
-		count++;
-		rem = n % 2;
-		n = n / 2;
-		bin += rem * i;
-		i *= 10;
+		bin[i] = n % 2;
+		n /= 2;
+		i++;
 	}
-	printint(bin);
+	while (i > 0)
+	{
+		i--;
+		count++;
+		_putchar(bin[i] + '0');
+	}
 	return (count);
 }
