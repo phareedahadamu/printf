@@ -88,7 +88,7 @@ int print_bin(va_list arg)
 {
 	unsigned int n;
 	int bin[32] = {0};
-	int count = 0; i = 0;
+	int count = 0, i = 0;
 
 	n = va_arg(arg, unsigned int);
 	if (n == 0)
