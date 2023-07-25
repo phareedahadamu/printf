@@ -43,9 +43,9 @@ int print_str(va_list arg)
  */
 int print_int(va_list arg)
 {
-	int temp, digits = 0, n, count = 0, pow, i;
+	unsigned int digits = 0, count = 0, pow, i;
 
-	n = va_arg(arg, int);
+	int temp, n = va_arg(arg, long int);
 
 	if (n == 0)
 	{
@@ -59,8 +59,10 @@ int print_int(va_list arg)
 		n = -n;
 	}
 	temp = n;
+
 	do {
 		digits++;
+		count++;
 		temp = temp / 10;
 	} while (temp != 0);
 
@@ -70,7 +72,7 @@ int print_int(va_list arg)
 
 		for (i = 1; i < digits; i++)
 			pow *= 10;
-		count += _putchar((n / pow) + '0');
+		_putchar((n / pow) + '0');
 		n -= (n / pow) * pow;
 		digits--;
 	}
