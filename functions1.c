@@ -110,6 +110,12 @@ int print_bin(va_list arg)
 	unsigned int n, bin = 0, i = 1, count = 0, rem;
 
 	n = va_arg(arg, unsigned int);
+	if (n == 0)
+	{
+		count++;
+		_putchar('0');
+	}
+
 	while (n != 0)
 	{
 		count++;
