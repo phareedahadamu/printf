@@ -45,7 +45,7 @@ int print_int(va_list arg)
 {
 	unsigned int digits = 0, count = 0, pow, i;
 
-	int temp, n = va_arg(arg, long int);
+	int temp, n = va_arg(arg, int);
 
 	if (n == 0)
 	{
@@ -75,6 +75,24 @@ int print_int(va_list arg)
 		_putchar((n / pow) + '0');
 		n -= (n / pow) * pow;
 		digits--;
+	}
+	return (count);
+}
+
+/**
+ * print_bin - A function that prints an int in binary
+ * @arg: The argument to be printed
+ * Return: The length of digits printed
+ */
+int print_bin(va_list arg)
+{
+	unsigned int n, i, count = 0;
+
+	n = va_arg(arg, unsigned int);
+	for (i = 1 << 31; i > 0; i = i / 2)
+	{
+		count++;
+		(n & i) ? printf("1") : printf("0");
 	}
 	return (count);
 }
