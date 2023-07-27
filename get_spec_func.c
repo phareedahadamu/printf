@@ -16,6 +16,7 @@ int (*get_func(const char s))(va_list arg)
 	{'d', print_int},
 	{'i', print_int},
 	{'b', print_bin},
+	{'u', print_uint},
 	{'\0', NULL}
 	};
 
