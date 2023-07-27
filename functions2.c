@@ -36,6 +36,11 @@ int print_uint(va_list arg)
 	return (count);
 }
 
+/**
+ * print_oct - A function that converts a decimal number to octal
+ * @arg: The argument to be converted
+ * Return: The number of digits printed
+ */
 int print_oct(va_list arg)
 {
 	unsigned int n = va_arg(arg, int);
@@ -57,4 +62,37 @@ int print_oct(va_list arg)
 		count += _putchar(temp[j] + '0');
 	}
 	return (count);
+}
+
+/**
+ * print_hex - A function that converts a number from decimal to hex (lower case)
+ * @arg: The argument to be converted
+ * Return: The number of digits / characters printed
+ */
+
+int print_hex(va_list arg)
+{
+	unsigned int n = va_arg(arg, int);
+	int rem, count = 0, i, j;
+	char temp[100];
+
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	for (i = 0; n != 0; i++)
+	{
+		rem = n % 16;
+		if (rem < 10)
+			temp[i] = rem + 48;
+		else
+			temp[i] = rem + 87;
+		n = n / 16;
+	}
+	for(j = (i - 1); j >= 0; j--)
+	{
+		count += _putchar(temp[j]);
+        }
+        return (count);
 }
