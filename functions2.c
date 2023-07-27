@@ -9,7 +9,7 @@
 int print_uint(va_list arg)
 {
 	unsigned int digits = 0, count = 0, pow, i;
-	unsigned int temp, n = va_arg(arg, int);
+	long int temp, n = va_arg(arg, int);
 
 	if (n == 0)
 	{
