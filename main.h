@@ -28,5 +28,6 @@ int print_str(va_list arg);
 int print_int(va_list arg);
 int print_bin(va_list arg);
 int print_uint(va_list arg);
+int print_oct(va_list arg);
 
 #endif

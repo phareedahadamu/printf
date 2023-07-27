@@ -35,3 +35,27 @@ int print_uint(va_list arg)
 	}
 	return (count);
 }
+
+int print_oct(va_list arg)
+{
+	unsigned int n = va_arg(arg, int);
+	int rem, temp[100], count, i, j;
+
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	for (i = 0; n != 0; i++)
+	{
+		rem = n % 8;
+		temp[i] = rem;
+		n = n / 8;
+		count++;
+	}
+	for(j = (i - 1); j >= 0; j--)
+	{
+		_putchar(temp[j] + '0');
+	}
+	return (count);
+}
