@@ -19,6 +19,7 @@ int (*get_func(const char s))(va_list arg)
 	{'u', print_uint},
 	{'o', print_oct},
 	{'x', print_hex},
+	{'X', print_upper_hex},
 	{'\0', NULL}
 	};
 

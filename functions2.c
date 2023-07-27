@@ -57,7 +57,7 @@ int print_oct(va_list arg)
 		temp[i] = rem;
 		n = n / 8;
 	}
-	for(j = (i - 1); j >= 0; j--)
+	for (j = (i - 1); j >= 0; j--)
 	{
 		count += _putchar(temp[j] + '0');
 	}
@@ -65,7 +65,8 @@ int print_oct(va_list arg)
 }
 
 /**
- * print_hex - A function that converts a number from decimal to hex (lower case)
+ * print_hex - A function that converts a number from
+ *             decimal to hex (lower case)
  * @arg: The argument to be converted
  * Return: The number of digits / characters printed
  */
@@ -90,9 +91,43 @@ int print_hex(va_list arg)
 			temp[i] = rem + 87;
 		n = n / 16;
 	}
-	for(j = (i - 1); j >= 0; j--)
+	for (j = (i - 1); j >= 0; j--)
 	{
 		count += _putchar(temp[j]);
-        }
-        return (count);
+	}
+	return (count);
+}
+
+/**
+ * print_upper_hex - A function that converts a number from
+ *                   decimal to hex (upper case)
+ * @arg: The argument to be converted
+ * Return: The number of digits / characters printed
+ */
+
+int print_upper_hex(va_list arg)
+{
+	unsigned int n = va_arg(arg, int);
+	int rem, count = 0, i, j;
+	char temp[100];
+
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	for (i = 0; n != 0; i++)
+	{
+		rem = n % 16;
+		if (rem < 10)
+			temp[i] = rem + 48;
+		else
+			temp[i] = rem + 55;
+		n = n / 16;
+	}
+	for (j = (i - 1); j >= 0; j--)
+	{
+		count += _putchar(temp[j]);
+	}
+	return (count);
 }
