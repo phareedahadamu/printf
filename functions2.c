@@ -17,7 +17,7 @@ int print_uint(va_list arg)
 		return (1);
 	}
 	if (n < 0)
-		n = -n;
+		return (0);
 	temp = n;
 	do {
 		digits++;
