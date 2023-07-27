@@ -39,7 +39,7 @@ int print_uint(va_list arg)
 int print_oct(va_list arg)
 {
 	unsigned int n = va_arg(arg, int);
-	int rem, temp[100], count, i, j;
+	int rem, temp[100], count = 0, i, j;
 
 	if (n == 0)
 	{
@@ -51,11 +51,10 @@ int print_oct(va_list arg)
 		rem = n % 8;
 		temp[i] = rem;
 		n = n / 8;
-		count++;
 	}
 	for(j = (i - 1); j >= 0; j--)
 	{
-		_putchar(temp[j] + '0');
+		count += _putchar(temp[j] + '0');
 	}
 	return (count);
 }
