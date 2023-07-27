@@ -5,6 +5,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <limits.h>
 
 /**
  * struct spec_func - A structure that pairs the format specifier
